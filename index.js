@@ -1,5 +1,5 @@
 const mainText = document.getElementById("main-text");
-const gameBoard = document.getElementById("main-game");
+const grid = document.getElementById("grid");
 const scoreBoard = document.getElementById("score");
 const startBtn = document.getElementById("btn-start");
 
@@ -12,7 +12,7 @@ let gameSquare = [];
 function addSnake() {
   let i;
   for (i = 0; i < snake.length; i++) {
-    gameBoard.innerHTML += `<div class="square"></div>`;
+    grid.innerHTML += `<div class="square snake"></div>`;
   }
 }
 
