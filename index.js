@@ -12,8 +12,9 @@ function createGrid() {
   let i;
   for (i = 0; i < width * width; i++) {
     const square = document.createElement("div");
-    grid.appendChild(square);
     square.classList.add("square");
+    grid.appendChild(square);
+    squares.push(square);
   }
 }
 createGrid();
