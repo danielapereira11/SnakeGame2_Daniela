@@ -93,3 +93,7 @@ span {
 .snake {
   background-image: linear-gradient(180deg, brown, rgb(165, 112, 42));
 }
+
+.apple {
+  background-image: radial-gradient(rgb(201, 2, 2), rgb(136, 38, 38));
+}
