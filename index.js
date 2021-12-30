@@ -2,13 +2,13 @@ const mainText = document.getElementById("main-text");
 const grid = document.getElementById("grid");
 const scoreBoard = document.getElementById("score");
 const startBtn = document.getElementById("btn-start");
+const width = 10;
+const gridArea = width * width;
 let snake = [2, 1, 0];
 let squares = [];
 let score = 0;
-const width = 10;
-const gridArea = width * width;
 let timer = 1000;
-let appleIndex = Math.floor(Math.random() * gridArea);
+let appleIndex = 0;
 
 scoreBoard.innerHTML = score;
 
@@ -23,9 +23,14 @@ function createGrid() {
 }
 createGrid();
 
-createSnake = () =>
-  snake.forEach((index) => squares[index].classList.add("snake"));
-createSnake();
+snake.forEach((index) => squares[index].classList.add("snake"));
+
+function generateApple() {
+  appleIndex = Math.floor(Math.random() * gridArea);
+  if (squares[appleIndex].classList.contains("snake") === false) {
+    squares[appleIndex].classList.add("apple");
+  }
+}
 
 function movingSnake() {
   let snakeHead = snake[0];
@@ -35,10 +40,6 @@ function movingSnake() {
   createSnake();
 }
 
-function generateApple() {
-  if (squares[appleIndex].classList.contains("snake") === false) {
-    squares[appleIndex].classList.add("apple");
-  }
 }
 
 startGame = () => {
