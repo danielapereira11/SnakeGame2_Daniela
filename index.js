@@ -42,21 +42,20 @@ function startGame() {
 }
 
 function movingSnake() {
-  let snakeHead = snake[0];
   if (
-    (snakeHead % width === Math.floor(9) && direction === 1) ||
-    (snakeHead % width === 0 && direction === -1) ||
-    (snakeHead < width && direction === -width) ||
-    (snakeHead > gridArea - width && direction === width) ||
-    squares[snakeHead + direction].classList.contains("snake")
+    (snake[0] % width === Math.floor(9) && direction === 1) ||
+    (snake[0] % width === 0 && direction === -1) ||
+    (snake[0] < width && direction === -width) ||
+    (snake[0] >= gridArea - width && direction === width) ||
+    squares[snake[0] + direction].classList.contains("snake")
   ) {
     return clearInterval(timerId);
   }
 
   let snakeTail = snake.pop();
   squares[snakeTail].classList.remove("snake");
-  snake.unshift(snakeHead + direction);
-  snake.forEach((index) => squares[index].classList.add("snake"));
+  snake.unshift(snake[0] + direction);
+  squares[snake[0]].classList.add("snake");
 }
 
 function generateApple() {
