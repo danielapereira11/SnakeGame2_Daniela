@@ -23,3 +23,12 @@ function createSnake() {
   snake.forEach((index) => squares[index].classList.add("snake"));
 }
 createSnake();
+function movingSnake() {
+  let snakeHead = snake[0];
+  let snakeTail = snake.pop();
+  squares[snakeTail].classList.remove("snake");
+  snake.unshift(snakeHead + 1);
+  createSnake();
+}
+
+startBtn.addEventListener("click", movingSnake);
