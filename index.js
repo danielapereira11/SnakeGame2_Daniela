@@ -27,11 +27,18 @@ createGrid();
 
 snake.forEach((index) => squares[index].classList.add("snake"));
 
-function generateApple() {
-  appleIndex = Math.floor(Math.random() * gridArea);
-  if (squares[appleIndex].classList.contains("snake") === false) {
-    squares[appleIndex].classList.add("apple");
-  }
+function startGame() {
+  snake.forEach((index) => squares[index].classList.remove("snake"));
+  squares[appleIndex].classList.remove("apple");
+  clearInterval(timerId);
+  snake = [2, 1, 0];
+  score = 0;
+  scoreBoard.innerHTML = score;
+  direction = 1;
+  timer = 1000;
+  generateApple();
+  snake.forEach((index) => squares[index].classList.add("snake"));
+  timerId = setInterval(movingSnake, timer);
 }
 
 function movingSnake() {
@@ -52,17 +59,12 @@ function movingSnake() {
   snake.forEach((index) => squares[index].classList.add("snake"));
 }
 
-function startGame() {
-  snake.forEach((index) => squares[index].classList.remove("snake"));
-  squares[appleIndex].classList.remove("apple");
-  clearInterval(timerId);
-  snake = [2, 1, 0];
-  score = 0;
-  scoreBoard.innerHTML = score;
-  timer = 1000;
-  generateApple();
-  snake.forEach((index) => squares[index].classList.add("snake"));
-  timerId = setInterval(movingSnake, timer);
+function generateApple() {
+  do {
+    appleIndex = Math.floor(Math.random() * gridArea);
+  } while (squares[appleIndex].classList.contains("snake"));
+  squares[appleIndex].classList.add("apple");
+  // SEE WHATS GOING ON HERE, BECAUSE NO LONGER IS TAKING INTO CONSIDERATION WHERE THE SNAKE IS!!!!!
 }
 
 function control(e) {
