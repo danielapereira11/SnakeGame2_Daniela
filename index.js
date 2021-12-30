@@ -7,6 +7,7 @@ let squares = [];
 let score = 0;
 scoreBoard.innerHTML = score;
 const width = 10;
+let timer = 1000;
 
 function createGrid() {
   let i;
@@ -19,10 +20,10 @@ function createGrid() {
 }
 createGrid();
 
-function createSnake() {
+createSnake = () =>
   snake.forEach((index) => squares[index].classList.add("snake"));
-}
 createSnake();
+
 function movingSnake() {
   let snakeHead = snake[0];
   let snakeTail = snake.pop();
@@ -31,4 +32,8 @@ function movingSnake() {
   createSnake();
 }
 
-startBtn.addEventListener("click", movingSnake);
+startGame = () => {
+  let timerID = setInterval(movingSnake, timer);
+};
+
+startBtn.addEventListener("click", startGame);
