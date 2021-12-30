@@ -107,5 +107,16 @@ span {
 }
 
 .apple {
+  border: none;
+  border-radius: 50px 50px 70px 70px;
   background-image: radial-gradient(rgb(201, 2, 2), rgb(136, 38, 38));
+}
+
+.apple::before {
+  content: "";
+  width: 0.3%;
+  height: 1.8%;
+  border-radius: 0px 4px 3px 3px;
+  background-color: #3f1d0a;
+  position: absolute;
 }
