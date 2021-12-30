@@ -18,4 +18,8 @@ function createGrid() {
   }
 }
 createGrid();
-snake.forEach((index) => squares[index].classList.add("snake"));
+
+function createSnake() {
+  snake.forEach((index) => squares[index].classList.add("snake"));
+}
+createSnake();
