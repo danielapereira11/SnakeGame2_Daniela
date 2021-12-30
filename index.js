@@ -36,6 +36,16 @@ function generateApple() {
 
 function movingSnake() {
   let snakeHead = snake[0];
+  if (
+    (snakeHead % width === Math.floor(9) && direction === 1) ||
+    (snakeHead % width === 0 && direction === -1) ||
+    (snakeHead < width && direction === -width) ||
+    (snakeHead > gridArea - width && direction === width) ||
+    squares[snakeHead + direction].classList.contains("snake")
+  ) {
+    return clearInterval(timerId);
+  }
+
   let snakeTail = snake.pop();
   squares[snakeTail].classList.remove("snake");
   snake.unshift(snakeHead + direction);
