@@ -7,11 +7,12 @@ let squares = [];
 let score = 0;
 scoreBoard.innerHTML = score;
 const width = 10;
+const gridArea = width * width;
 let timer = 1000;
 
 function createGrid() {
   let i;
-  for (i = 0; i < width * width; i++) {
+  for (i = 0; i < gridArea; i++) {
     const square = document.createElement("div");
     square.classList.add("square");
     grid.appendChild(square);
