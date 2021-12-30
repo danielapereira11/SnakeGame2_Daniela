@@ -55,5 +55,21 @@ function startGame() {
   timerId = setInterval(movingSnake, timer);
 }
 
+function control(e) {
+  switch (e.key) {
+    case "ArrowDown":
+      direction = width;
+      break;
+    case "ArrowUp":
+      direction = -width;
+      break;
+    case "ArrowRight":
+      direction = 1;
+      break;
+    case "ArrowLeft":
+      direction = -1;
+  }
+}
 
 startBtn.addEventListener("click", startGame);
+document.addEventListener("keyup", control);
