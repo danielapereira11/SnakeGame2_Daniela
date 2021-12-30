@@ -5,10 +5,12 @@ const startBtn = document.getElementById("btn-start");
 let snake = [2, 1, 0];
 let squares = [];
 let score = 0;
-scoreBoard.innerHTML = score;
 const width = 10;
 const gridArea = width * width;
 let timer = 1000;
+let appleIndex = Math.floor(Math.random() * gridArea);
+
+scoreBoard.innerHTML = score;
 
 function createGrid() {
   let i;
@@ -33,7 +35,14 @@ function movingSnake() {
   createSnake();
 }
 
+function generateApple() {
+  if (squares[appleIndex].classList.contains("snake") === false) {
+    squares[appleIndex].classList.add("apple");
+  }
+}
+
 startGame = () => {
+  generateApple();
   let timerID = setInterval(movingSnake, timer);
 };
 
