@@ -11,6 +11,7 @@ let timer = 1000;
 let appleIndex = 0;
 let timerId = 0;
 let direction = 1;
+let speed = 0.9;
 
 scoreBoard.innerHTML = score;
 
@@ -56,6 +57,19 @@ function movingSnake() {
   squares[snakeTail].classList.remove("snake");
   snake.unshift(snake[0] + direction);
   squares[snake[0]].classList.add("snake");
+
+  if (squares[snake[0]] === squares[appleIndex]) {
+    squares[appleIndex].classList.remove("apple");
+    squares[appleIndex].classList.add("snake");
+    snake.push(snakeTail);
+    squares[snakeTail].classList.add("snake");
+    generateApple();
+    score++;
+    scoreBoard.innerHTML = score;
+    clearInterval(timerId);
+    timer = timer * speed;
+    timerId = setInterval(movingSnake, timer);
+  }
 }
 
 function generateApple() {
