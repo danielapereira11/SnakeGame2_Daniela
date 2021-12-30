@@ -9,6 +9,7 @@ let squares = [];
 let score = 0;
 let timer = 1000;
 let appleIndex = 0;
+let direction = 1;
 
 scoreBoard.innerHTML = score;
 
@@ -36,8 +37,8 @@ function movingSnake() {
   let snakeHead = snake[0];
   let snakeTail = snake.pop();
   squares[snakeTail].classList.remove("snake");
-  snake.unshift(snakeHead + 1);
-  createSnake();
+  snake.unshift(snakeHead + direction);
+  snake.forEach((index) => squares[index].classList.add("snake"));
 }
 
 }
