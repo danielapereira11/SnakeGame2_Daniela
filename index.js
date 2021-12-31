@@ -14,6 +14,7 @@ let direction = 1;
 let speed = 0.9;
 
 scoreBoard.innerHTML = score;
+let starterMainText = () => (mainText.innerHTML = "Snake Game");
 
 function createGrid() {
   let i;
@@ -50,6 +51,8 @@ function movingSnake() {
     (snake[0] >= gridArea - width && direction === width) ||
     squares[snake[0] + direction].classList.contains("snake")
   ) {
+    mainText.innerHTML = "OUCH! 🐍";
+    setTimeout(starterMainText, 1000);
     return clearInterval(timerId);
   }
 
@@ -59,6 +62,8 @@ function movingSnake() {
   squares[snake[0]].classList.add("snake");
 
   if (squares[snake[0]] === squares[appleIndex]) {
+    mainText.innerHTML = "YUM! 🍎";
+    setTimeout(starterMainText, 1500);
     squares[appleIndex].classList.remove("apple");
     squares[appleIndex].classList.add("snake");
     snake.push(snakeTail);
