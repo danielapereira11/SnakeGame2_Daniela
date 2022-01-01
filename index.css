@@ -1,5 +1,7 @@
 :root {
   --snake-color: linear-gradient(180deg, brown, rgb(165, 112, 42));
+  --btn-hover-focus: linear-gradient(-100deg, #3ca55c, #b5ac49);
+  --btn-active: linear-gradient(180deg, brown, rgb(165, 112, 42));
 }
 
 * {
@@ -83,18 +85,18 @@ span {
   font-size: 1.3rem;
   box-shadow: 0 12px 16px 0 rgba(0, 0, 0, 0.24),
     0 17px 50px 0 rgba(0, 0, 0, 0.19);
-  background: linear-gradient(-100deg, #3ca55c, #b5ac49);
+  background: var(--btn-hover-focus);
 }
 
 .btn:focus {
   box-shadow: 0 12px 16px 0 rgba(0, 0, 0, 0.24),
     0 17px 50px 0 rgba(0, 0, 0, 0.19);
-  background: linear-gradient(-100deg, #3ca55c, #b5ac49);
+  background: var(--btn-hover-focus);
 }
 
 .btn:active {
   font-size: 1.05rem;
-  background: linear-gradient(180deg, brown, rgb(165, 112, 42));
+  background: var(--btn-active);
 }
 
 .square {
