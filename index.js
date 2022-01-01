@@ -20,16 +20,43 @@ scoreBoard.innerHTML = score;
 let starterMainText = () => (mainText.innerHTML = "Snake Game");
 
 function createGrid() {
-  for (let i = 0; i < gridArea; i++) {
-    const square = document.createElement("div");
-    square.classList.add("square");
-    grid.appendChild(square);
-    squares.push(square);
+  if (gameRunning === false) {
+    squares = [];
+    grid.innerHTML = "";
+    if (sizeBtn.innerText === "Smaller grid ⬇") {
+      for (let i = 0; i < gridArea; i++) {
+        const square = document.createElement("div");
+        sizeBtn.innerText = "Bigger grid ⬆";
+        width = 10;
+        gridArea = width * width;
+        square.classList.remove("square-big-grid");
+        square.classList.add("square", "square-small-grid");
+        grid.appendChild(square);
+        squares.push(square);
+      }
+    } else if (sizeBtn.innerText === "Bigger grid ⬆") {
+      for (let i = 0; i < gridArea; i++) {
+        const square = document.createElement("div");
+        sizeBtn.innerText = "Smaller grid ⬇";
+        width = 20;
+        gridArea = width * width;
+        square.classList.remove("square-small-grid");
+        square.classList.add("square", "square-big-grid");
+        grid.appendChild(square);
+        squares.push(square);
+      }
+    }
+    addSnakeClass();
   }
 }
 createGrid();
 
-snake.forEach((index) => squares[index].classList.add("snake"));
+sizeBtn.addEventListener("click", createGrid);
+
+function addSnakeClass() {
+  snake.forEach((index) => squares[index].classList.add("snake"));
+}
+addSnakeClass();
 
 function startGame() {
   gameRunning = true;
@@ -42,19 +69,21 @@ function startGame() {
   direction = 1;
   timer = 900;
   generateApple();
-  snake.forEach((index) => squares[index].classList.add("snake"));
+  addSnakeClass();
   timerId = setInterval(movingSnake, timer);
 }
 
 function movingSnake() {
   if (
-    (snake[0] % width === 19 && direction === 1) ||
+    (snake[0] % width === 19 && direction === 1 && width === 20) ||
+    (snake[0] % width === 9 && direction === 1 && width === 10) ||
     (snake[0] % width === 0 && direction === -1) ||
     (snake[0] < width && direction === -width) ||
     (snake[0] >= gridArea - width && direction === width) ||
     squares[snake[0] + direction].classList.contains("snake")
   ) {
     mainText.innerHTML = "OUCH! 🐍";
+    gameRunning = false;
     setTimeout(starterMainText, 1000);
     return clearInterval(timerId);
   }
