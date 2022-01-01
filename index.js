@@ -114,7 +114,6 @@ function generateApple() {
     appleIndex = Math.floor(Math.random() * gridArea);
   } while (squares[appleIndex].classList.contains("snake"));
   squares[appleIndex].classList.add("apple");
-  // SEE WHATS GOING ON HERE, BECAUSE NO LONGER IS TAKING INTO CONSIDERATION WHERE THE SNAKE IS!!!!!
 }
 
 function control(e) {
@@ -152,6 +151,12 @@ let buttonBg = [
 ];
 let textColor = ["rgb(102, 165, 60)", "rgb(189, 142, 176)", "rgb(54, 11, 10)"];
 
+let snakeColor = [
+  "linear-gradient(180deg, brown, rgb(165, 112, 42))",
+  "linear-gradient(180deg, rgb(184, 21, 62), rgb(150, 70, 94))",
+  "linear-gradient(180deg, rgb(23, 151, 123), rgb(118, 221, 199))",
+];
+
 function theme(index) {
   mainText.style.color = textColor[index];
   scoreBoard.style.color = textColor[index];
@@ -163,6 +168,11 @@ function theme(index) {
   document.querySelector(
     "body"
   ).style.backgroundImage = `url("${screenBgImage[index]}")`;
+
+  document.documentElement.style.setProperty(
+    "--snake-color",
+    `${snakeColor[index]}`
+  );
 }
 
 function changeTheme() {
