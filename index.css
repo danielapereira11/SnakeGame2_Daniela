@@ -20,10 +20,7 @@ h1 {
   margin: 15px 0;
   font-size: 3.5rem;
   line-height: 1.6;
-  background: -webkit-linear-gradient(160deg, #3ca55c, #b5ac49);
-  background-clip: text;
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
+  color: rgb(102, 165, 60);
 }
 
 p {

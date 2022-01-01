@@ -2,6 +2,7 @@ const mainText = document.getElementById("main-text");
 const grid = document.getElementById("grid");
 const scoreBoard = document.getElementById("score");
 const startBtn = document.getElementById("btn-start");
+const themeBtn = document.getElementById("btn-theme");
 const width = 20;
 const gridArea = width * width;
 let snake = [2, 1, 0];
@@ -104,3 +105,46 @@ function control(e) {
 
 startBtn.addEventListener("click", startGame);
 document.addEventListener("keydown", control);
+
+// --- CHANGING THEME --- //
+
+let screenBgImage = ["dirt-bg.JPG", "cloud-bg.JPG", "tree-bg.JPG"];
+let gameBgImage = ["grass-bg.JPG", "cotton-bg.JPG", "wood-bg.JPG"];
+let gameBgColor = [
+  "rgb(134, 134, 134)",
+  "rgb(214, 195, 212)",
+  "rgb(236, 236, 236)",
+];
+let buttonBg = [
+  "linear-gradient(100deg, #3ca55c, #b5ac49)",
+  "linear-gradient(100deg, #bd8eb0, #6f9fbb)",
+  "linear-gradient(100deg, #360b0a, #663c3c)",
+];
+let textColor = ["rgb(102, 165, 60)", "rgb(189, 142, 176)", "rgb(54, 11, 10)"];
+
+function theme(index) {
+  mainText.style.color = textColor[index];
+  scoreBoard.style.color = textColor[index];
+  startBtn.style.background = buttonBg[index];
+  themeBtn.style.background = buttonBg[index];
+  grid.style.backgroundImage = `url("${gameBgImage[index]}")`;
+  grid.style.backgroundColor = gameBgColor[index];
+  document.querySelector(
+    "body"
+  ).style.backgroundImage = `url("${screenBgImage[index]}")`;
+}
+
+function changeTheme() {
+  let textColorStyle = getComputedStyle(mainText).color;
+  if (textColorStyle === textColor[0]) {
+    theme(1);
+  } else if (textColorStyle === textColor[1]) {
+    theme(2);
+  } else {
+    theme(0);
+  }
+}
+
+themeBtn.addEventListener("click", changeTheme);
+
+// --- END OF CHANGING THEME --- //
