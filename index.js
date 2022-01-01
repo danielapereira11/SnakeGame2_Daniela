@@ -17,7 +17,7 @@ let speed = 0.9;
 let gameRunning = false;
 
 scoreBoard.innerHTML = score;
-let starterMainText = () => (mainText.innerHTML = "Snake Game");
+let starterMainText = () => (mainText.innerHTML = "SN🐍KE G🐍ME");
 
 function createGrid() {
   if (gameRunning === false) {
@@ -157,6 +157,7 @@ function theme(index) {
   scoreBoard.style.color = textColor[index];
   startBtn.style.background = buttonBg[index];
   themeBtn.style.background = buttonBg[index];
+  sizeBtn.style.background = buttonBg[index];
   grid.style.backgroundImage = `url("${gameBgImage[index]}")`;
   grid.style.backgroundColor = gameBgColor[index];
   document.querySelector(
