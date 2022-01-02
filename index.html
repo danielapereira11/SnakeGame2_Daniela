@@ -16,13 +16,36 @@
   </head>
   <body>
     <div class="container">
-      <h1 id="main-text">SN🐍KE G🐍ME</h1>
-      <div class="grid" id="grid"></div>
-      <p class="score">Score: <span id="score"></span></p>
+      <div class="title-container">
+        <h1 id="main-text">SN🐍KE G🐍ME</h1>
+      </div>
+      <div class="game-container">
+        <div class="grid-container">
+          <div class="grid" id="grid"></div>
+          <p class="score">Score: <span id="score"></span></p>
+        </div>
+        <div class="controls-container">
+          <div class="controls-1">
+            <button class="controls" id="ctrl-left">⬅</button>
+          </div>
+          <div class="controls-2">
+            <button class="controls" id="ctrl-up">⬆</button>
+            <button class="controls" id="ctrl-down">⬇</button>
+          </div>
+          <div class="controls-3">
+            <button class="controls" id="ctrl-right">➡</button>
+          </div>
+        </div>
+        <!-- /. END CONTROLS CONTAINER -->
+      </div>
+      <!-- /. END GAME CONTAINER -->
       <div class="btn-container">
         <button class="btn btn-start" id="btn-start">Start - Restart</button>
         <button class="btn btn-theme" id="btn-theme">Change Theme</button>
         <button class="btn btn-size" id="btn-size">Bigger grid ⬆</button>
+        <button class="btn btn-controls" id="btn-controls">
+          Show/Hide Controls
+        </button>
       </div>
     </div>
     <script src="index.js"></script>
