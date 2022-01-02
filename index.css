@@ -71,7 +71,7 @@ span {
 }
 
 .controls-container {
-  display: flex;
+  display: none;
   flex-direction: row;
   justify-content: center;
   align-items: center;
@@ -181,6 +181,6 @@ span {
   }
   .controls-container,
   #btn-controls {
-    display: none;
+    display: none !important;
   }
 }

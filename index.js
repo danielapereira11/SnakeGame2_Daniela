@@ -4,6 +4,7 @@ const scoreBoard = document.getElementById("score");
 const startBtn = document.getElementById("btn-start");
 const themeBtn = document.getElementById("btn-theme");
 const sizeBtn = document.getElementById("btn-size");
+const controlsBtn = document.getElementById("btn-controls");
 var width = 20;
 var gridArea = width * width;
 var squares = [];
@@ -168,6 +169,7 @@ function theme(index) {
   startBtn.style.background = buttonBg[index];
   themeBtn.style.background = buttonBg[index];
   sizeBtn.style.background = buttonBg[index];
+  controlsBtn.style.background = buttonBg[index];
   grid.style.backgroundImage = `url("${gameBgImage[index]}")`;
   grid.style.backgroundColor = gameBgColor[index];
   document.querySelector(
@@ -198,3 +200,21 @@ function changeTheme() {
 themeBtn.addEventListener("click", changeTheme);
 
 // --- END OF CHANGING THEME --- //
+
+// ON-SCREEN CONTROLS DISPLAY //
+
+function displayControls() {
+  let controlsContainer = document.querySelector(".controls-container");
+  let controlsDisplay = getComputedStyle(controlsContainer).display;
+  if (controlsDisplay === "flex") {
+    controlsContainer.style.setProperty("display", "none");
+    controlsBtn.innerHTML = "Show Controls";
+  } else {
+    controlsContainer.style.setProperty("display", "flex");
+    controlsBtn.innerHTML = "Hide Controls";
+  }
+}
+
+controlsBtn.addEventListener("click", displayControls);
+
+// END OF ON-SCREEN CONTROLS DISPLAY //
