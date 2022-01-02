@@ -149,7 +149,12 @@ let buttonBg = [
   "linear-gradient(100deg, #bd8eb0, #6f9fbb)",
   "linear-gradient(100deg, #360b0a, #663c3c)",
 ];
-let textColor = ["rgb(102, 165, 60)", "rgb(189, 142, 176)", "rgb(54, 11, 10)"];
+let buttonBgInverse = [
+  "linear-gradient(-100deg, #3ca55c, #b5ac49)",
+  "linear-gradient(-100deg, #bd8eb0, #6f9fbb)",
+  "linear-gradient(-100deg, #360b0a, #663c3c)",
+];
+let textColor = ["rgb(102, 165, 60)", "rgb(189, 142, 176)", "rgb(91, 37, 36)"];
 
 let snakeColor = [
   "linear-gradient(180deg, brown, rgb(165, 112, 42))",
@@ -172,6 +177,10 @@ function theme(index) {
   document.documentElement.style.setProperty(
     "--snake-color",
     `${snakeColor[index]}`
+  );
+  document.documentElement.style.setProperty(
+    "--btn-hover-focus",
+    `${buttonBgInverse[index]}`
   );
 }
 
