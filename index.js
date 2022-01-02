@@ -201,7 +201,12 @@ themeBtn.addEventListener("click", changeTheme);
 
 // --- END OF CHANGING THEME --- //
 
-// ON-SCREEN CONTROLS DISPLAY //
+// ON-SCREEN CONTROLS //
+
+const ctrlUp = document.querySelector("#ctrl-up");
+const ctrlDown = document.querySelector("#ctrl-down");
+const ctrlLeft = document.querySelector("#ctrl-left");
+const ctrlRight = document.querySelector("#ctrl-right");
 
 function displayControls() {
   let controlsContainer = document.querySelector(".controls-container");
@@ -216,5 +221,9 @@ function displayControls() {
 }
 
 controlsBtn.addEventListener("click", displayControls);
+ctrlDown.addEventListener("click", () => (direction = width));
+ctrlUp.addEventListener("click", () => (direction = -width));
+ctrlRight.addEventListener("click", () => (direction = 1));
+ctrlLeft.addEventListener("click", () => (direction = -1));
 
-// END OF ON-SCREEN CONTROLS DISPLAY //
+// END OF ON-SCREEN CONTROLS //
