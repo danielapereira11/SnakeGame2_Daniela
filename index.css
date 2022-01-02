@@ -43,6 +43,15 @@ span {
   width: 900px;
   margin: 8px auto;
   padding: 0;
+  display: flex;
+  flex-direction: column;
+}
+
+.game-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  column-gap: 2em;
 }
 
 .grid {
@@ -59,6 +68,39 @@ span {
   flex-wrap: wrap;
   align-items: start;
   align-content: flex-start;
+}
+
+.controls-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  width: 40%;
+  padding: 0;
+  margin: 0;
+}
+
+.controls-2 {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.controls {
+  border: none;
+  border-radius: 2px;
+  background: var(--snake-color);
+  color: white;
+  width: 2em;
+  height: 2em;
+  font-size: 2rem;
+}
+
+.controls:hover {
+  cursor: pointer;
+}
+
+.controls:active {
+  font-size: 1.8rem;
 }
 
 .btn-container {
@@ -131,4 +173,14 @@ span {
   border-radius: 0px 4px 3px 3px;
   background-color: #3f1d0a;
   position: absolute;
+}
+
+@media (max-width: 720px) {
+  .game-container {
+    flex-direction: column;
+  }
+  .controls-container,
+  #btn-controls {
+    display: none;
+  }
 }
