@@ -18,16 +18,16 @@ let speed = 0.9;
 let gameRunning = false;
 
 scoreBoard.innerHTML = score;
-let starterMainText = () => (mainText.innerHTML = "SN🐍KE G🐍ME");
+let starterMainText = () => (mainText.innerHTML = "SN🐍KE GAME");
 
 function createGrid() {
   if (gameRunning === false) {
     squares = [];
     grid.innerHTML = "";
-    if (sizeBtn.innerText === "Smaller grid ⬇") {
+    if (sizeBtn.innerHTML === "Smaller grid") {
       for (let i = 0; i < gridArea; i++) {
         const square = document.createElement("div");
-        sizeBtn.innerText = "Bigger grid ⬆";
+        sizeBtn.innerText = "Bigger grid";
         width = 10;
         gridArea = width * width;
         square.classList.remove("square-big-grid");
@@ -35,10 +35,10 @@ function createGrid() {
         grid.appendChild(square);
         squares.push(square);
       }
-    } else if (sizeBtn.innerText === "Bigger grid ⬆") {
+    } else if (sizeBtn.innerText === "Bigger grid") {
       for (let i = 0; i < gridArea; i++) {
         const square = document.createElement("div");
-        sizeBtn.innerText = "Smaller grid ⬇";
+        sizeBtn.innerText = "Smaller grid";
         width = 20;
         gridArea = width * width;
         square.classList.remove("square-small-grid");
@@ -61,6 +61,7 @@ addSnakeClass();
 
 function startGame() {
   gameRunning = true;
+  startBtn.innerHTML = `<i class="fas fa-redo"></i>`;
   snake.forEach((index) => squares[index].classList.remove("snake"));
   squares[appleIndex].classList.remove("apple");
   clearInterval(timerId);

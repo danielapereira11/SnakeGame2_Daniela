@@ -11,18 +11,24 @@
       href="https://fonts.googleapis.com/css2?family=Shizuru&display=swap"
       rel="stylesheet"
     />
+    <script
+      src="https://kit.fontawesome.com/3034dccdbc.js"
+      crossorigin="anonymous"
+    ></script>
 
     <title>Snake Game</title>
   </head>
   <body>
     <div class="container">
       <div class="title-container">
-        <h1 id="main-text">SN🐍KE G🐍ME</h1>
+        <h1 id="main-text">SN🐍KE GAME</h1>
+      </div>
+      <div class="score-container">
+        <p class="score">Score: <span id="score"></span></p>
       </div>
       <div class="game-container">
         <div class="grid-container">
           <div class="grid" id="grid"></div>
-          <p class="score">Score: <span id="score"></span></p>
         </div>
         <div class="controls-container">
           <div class="controls-1">
@@ -40,14 +46,26 @@
       </div>
       <!-- /. END GAME CONTAINER -->
       <div class="btn-container">
-        <button class="btn btn-start" id="btn-start">Start - Restart</button>
-        <button class="btn btn-theme" id="btn-theme">Change Theme</button>
-        <button class="btn btn-size" id="btn-size">Bigger grid ⬆</button>
-        <button class="btn btn-controls" id="btn-controls">
-          Show Controls
-        </button>
+        <div>
+          <button class="btn btn-start" id="btn-start">
+            <i class="fas fa-play"></i>
+          </button>
+        </div>
+        <div>
+          <button class="btn btn-theme" id="btn-theme">Change Theme</button>
+        </div>
+        <div>
+          <button class="btn btn-size" id="btn-size">Bigger grid</button>
+        </div>
+        <div>
+          <button class="btn btn-controls" id="btn-controls">
+            Show Controls
+          </button>
+        </div>
       </div>
+      <!-- /. END OF BTN CONTAINER -->
     </div>
+    <!-- /. END OF CONTAINER DIV -->
     <script src="index.js"></script>
   </body>
 </html>

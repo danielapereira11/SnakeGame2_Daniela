@@ -18,11 +18,10 @@ body {
   color: black;
   font-size: 1rem;
   font-family: "Shizuru", cursive;
-  display: flex;
 }
 
 h1 {
-  margin: 15px 0;
+  margin: 10px 0;
   font-size: 3.5rem;
   line-height: 1.6;
   color: rgb(102, 165, 60);
@@ -31,7 +30,7 @@ h1 {
 p {
   font-size: 2rem;
   font-weight: 900;
-  margin: 15px auto 0;
+  margin: 0 auto 15px;
 }
 
 span {
@@ -41,21 +40,28 @@ span {
 .container {
   max-width: 90%;
   width: 900px;
-  margin: 8px auto;
+  margin: 0 auto;
   padding: 0;
   display: flex;
   flex-direction: column;
+  justify-content: center;
 }
 
 .game-container {
   display: flex;
   flex-direction: row;
   justify-content: center;
-  column-gap: 2em;
+  column-gap: 0em;
+  margin: 5px auto;
+}
+
+.grid-container {
+  margin: 0 auto;
+  display: flex;
 }
 
 .grid {
-  margin: 0 auto;
+  margin: 0 2.5em;
   width: 400px;
   height: 400px;
   background-color: rgb(134, 134, 134);
@@ -105,7 +111,10 @@ span {
 
 .btn-container {
   display: flex;
+  flex-direction: row;
   flex-wrap: wrap;
+  justify-content: space-evenly;
+  gap: 1em;
 }
 
 .btn {
@@ -116,7 +125,7 @@ span {
   border: none;
   border-radius: 5px;
   margin: 20px auto;
-  padding: 0.7em 1.3em;
+  padding: 0.6em 1.1em;
   box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
   transition: all 350ms ease;
 }
@@ -182,5 +191,11 @@ span {
   .controls-container,
   #btn-controls {
     display: none !important;
+  }
+}
+
+@media (max-width: 550px) {
+  .btn-container {
+    flex-direction: column;
   }
 }
